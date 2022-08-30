@@ -7,9 +7,9 @@ import java.sql.SQLException;
 public class App {
 
     public static void main( String[] args ) {
-        String dburl = "jdbc:postgresql://java-angular-220815-2.cuuno41ql544.us-east-1.rds.amazonaws.com:5432/postgres?currentSchema=workersapp";
-        String dbUsername = "scott";
-        String dbPassword = "revature";
+        String dburl = "jdbc:postgresql://fake-db-url:5432/postgres?currentSchema=workersapp";
+        String dbUsername = "fake-user";
+        String dbPassword = "fake-password";
         try {
             Connection connection = DriverManager.getConnection(dburl, dbUsername, dbPassword);
             if (connection != null) {
