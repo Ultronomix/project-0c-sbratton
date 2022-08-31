@@ -12,12 +12,12 @@ public class App {
         UserDAO userDAO = new UserDAO();
 
         User newUser = new User();
-        newUser.setGiven_name("Scott");
-        newUser.setSurname("Stough");
-        newUser.setEmail("sco234@revature.com");
-        newUser.setUsername("sstough");
+        newUser.setGiven_name("Spencer");
+        newUser.setSurname("Tracy");
+        newUser.setEmail("spe234@revature.com");
+        newUser.setUsername("stracy");
         newUser.setPassword("p$$WORD");
-        newUser.setSalary(25000);
+        newUser.setSalary(55000);
 
         int newUserId = userDAO.save(newUser);
         System.out.println(newUserId);

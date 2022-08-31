@@ -91,9 +91,9 @@ public class User {
                 '}';
     }
 
-    public String getGiven_name() {
-        String o = null;
-        return o;
+   public String getGiven_name() {
+
+        return given_name;
     }
 
     public void setId() {
