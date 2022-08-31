@@ -21,3 +21,8 @@ VALUES('Kammy', 'Turner', 'kam789@revature.com', 'kturner', 'p4$$WORD', 27500);
 INSERT INTO workersapp.workers
 (given_name, surname, email, username, "password", salary)
 VALUES('Sammy', 'Pickens', 'sam345@revature.com', 'spickens', 'p4$$WORD', 20000);
+
+INSERT INTO workersapp.workers
+(given_name, surname, email, username, "password", salary)
+VALUES('Julie', 'Latham', 'jul465@revature.com', 'jlatham', 'p4$$WORD', 25000);
+
