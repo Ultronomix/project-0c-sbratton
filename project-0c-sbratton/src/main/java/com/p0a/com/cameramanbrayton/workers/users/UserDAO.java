@@ -48,8 +48,8 @@ public class UserDAO {
     }
     public int save(User user) {
         String sql = "INSERT INTO workersapp.workers" +
-        "(given_name, surname, email, username, password, salary)" +
-        "VALUES (?, ?, ?, ?, ?, ?)";
+                "(given_name, surname, email, username, password, salary)" +
+                "VALUES (?, ?, ?, ?, ?, ?)";
 
         try (Connection conn = ConnectionFactory.getInstance().getConnection()) {
 
@@ -75,10 +75,12 @@ public class UserDAO {
         } catch (SQLException e) {
             System.err.println("Something went wrong when communicating with the database");
             e.printStackTrace();
-    }
+        }
         return user.getId();
     }
 }
+
+
 
 
 
