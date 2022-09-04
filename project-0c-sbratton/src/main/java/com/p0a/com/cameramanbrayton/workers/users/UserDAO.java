@@ -2,11 +2,14 @@ package main.java.com.p0a.com.cameramanbrayton.workers.users;
 
 import main.java.com.p0a.com.cameramanbrayton.workers.common.datasource.ConnectionFactory;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-
-import static java.sql.Statement.RETURN_GENERATED_KEYS;
 
 public class UserDAO {
 
@@ -47,6 +50,7 @@ public class UserDAO {
 
     }
     public int save(User user) {
+
         String sql = "INSERT INTO workersapp.workers" +
                 "(given_name, surname, email, username, password, salary)" +
                 "VALUES (?, ?, ?, ?, ?, ?)";
@@ -73,11 +77,30 @@ public class UserDAO {
             user.setId(rs.getInt("id"));
 
         } catch (SQLException e) {
-            System.err.println("Something went wrong when communicating with the database");
-            e.printStackTrace();
+            /*System.err.println("Something went wrong when communicating with the database");
+            e.printStackTrace();*/
+            log("Error", e.getMessage());
         }
+
+        log("INFO", "Successfully persisted new user with id: " + user.getId());
+
         return user.getId();
     }
+
+        public void log(String level, String message) {
+            try {
+            File logFile = new File("logs/aap.log");
+                logFile.createNewFile();
+                BufferedWriter logWriter = new BufferedWriter(new FileWriter(logFile, true));
+                logWriter.write(String.format("[%s] at %s logged: [%s] %s\n", Thread.currentThread().getName(), LocalDate.now(),
+                        level.toUpperCase(), message));
+                logWriter.flush();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+
+        }
+
 }
 
 
